@@ -9,8 +9,7 @@ def capframe():
         ret, frame  = cap.read()
         ret, encodedframe = cv2.imencode(".jpeg", frame)
         encodedframe = encodedframe.tobytes()
-        yield (b'--frame\r\n'
-               b'Content-Type:image/jpeg\r\n\r\n' + encodedframe + b'\r\n')
+        yield b'--frame\r\n'+b'Content-Type:image/jpeg\r\n\r\n' + encodedframe + b'\r\n'
 
 def index(request):
 
